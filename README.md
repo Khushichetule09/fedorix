@@ -1,6 +1,6 @@
 <div align="center">
 
-# Fedorix 🩵
+# Fedorix 🐧
 
 **A clean, minimal GNOME customization for Fedora, built for people who want their desktop to look good without breaking their workflow.**
 
