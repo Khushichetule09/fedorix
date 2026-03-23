@@ -1,9 +1,18 @@
 <div align="center">
 
+<<<<<<< HEAD
 # Fedorix
+=======
+# Fedorix 🐧
+
+**A clean, minimal GNOME customization for Fedora, built for people who want their desktop to look good without breaking their workflow.**
+
+>>>>>>> 5639a665b9f88e9c2f5cf96ed9a0d75167c3886b
 ![GNOME](https://img.shields.io/badge/DE-GNOME-informational?style=flat&logo=gnome&logoColor=white&color=4A90D9)
 ![Distro](https://img.shields.io/badge/Distro-Fedora-informational?style=flat&logo=fedora&logoColor=white&color=3c6eb4)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
+
+![Overview](Assets/overview.png)
 
 </div>
 
@@ -91,7 +100,6 @@ A few things to know before you begin.
 > Most of the visual polish comes from **configuring** extensions rather than just installing them. Make sure to check the [Extension Configurations](#extension-configurations) screenshots because the defaults will not get you there.
 
 ---
-
 ## Preview
 
 ![Multitasking](Assets/multitasking.png)
@@ -806,6 +814,6 @@ All credit goes to the original authors of the tools used in this setup.
 **Fedorix** is a collaborative effort by **Naitik** and **Khushi**.<br>
 *Built through a lot of trial, tweaks, and constant iteration.*
 
-*Thanks!*
+*Star the Repo, Thanks!*
 
 </div>
