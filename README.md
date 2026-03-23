@@ -8,6 +8,8 @@
 ![Distro](https://img.shields.io/badge/Distro-Fedora-informational?style=flat&logo=fedora&logoColor=white&color=3c6eb4)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
+![Overview](Assets/overview.png)
+
 </div>
 
 ---
@@ -51,10 +53,7 @@ GNOME felt like the right base after some tweaking. The overview workflow is smo
 > [!IMPORTANT]
 > Most of the visual polish comes from **configuring** extensions rather than just installing them. Make sure to check the [Extension Configurations](#extension-configurations) screenshots because the defaults will not get you there.
 
-![Overview](Assets/overview.png)
-
 ---
-
 ## Preview
 
 ![Multitasking](Assets/multitasking.png)
@@ -679,6 +678,6 @@ gsettings set org.gnome.shell.window-switcher current-workspace-only false
 **Fedorix** is a collaborative effort by **Naitik** and **Khushi**.<br>
 *Built through a lot of trial, tweaks, and constant iteration.*
 
-*Thanks!*
+*Star the Repo, Thanks!*
 
 </div>
