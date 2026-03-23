@@ -2,7 +2,9 @@
 
 # Fedorix 🐧
 
-**A beginner-friendly GNOME setup guide for Fedora. Same workflow, just better.**
+**A beginner-friendly GNOME setup guide for Fedora. Same workflow, just better.**<br><br>
+
+
 ![GNOME](https://img.shields.io/badge/DE-GNOME-informational?style=flat&logo=gnome&logoColor=white&color=4A90D9)
 ![Distro](https://img.shields.io/badge/Distro-Fedora-informational?style=flat&logo=fedora&logoColor=white&color=3c6eb4)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
