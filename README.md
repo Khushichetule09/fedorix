@@ -2,10 +2,10 @@
 
 # Fedorix 🐧
 
-**A clean, minimal GNOME customization for Fedora, built for people who want their desktop to look good without breaking their workflow.**
+**A beginner-friendly GNOME setup guide for Fedora. Same workflow, just better.**
 ![GNOME](https://img.shields.io/badge/DE-GNOME-informational?style=flat&logo=gnome&logoColor=white&color=4A90D9)
 ![Distro](https://img.shields.io/badge/Distro-Fedora-informational?style=flat&logo=fedora&logoColor=white&color=3c6eb4)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ![Overview](Assets/overview.png)
 
