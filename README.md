@@ -2,6 +2,8 @@
 
 # Fedorix — GNOME on Fedora
 
+A beginner-friendly GNOME setup guide for Fedora. same workflow, just better.
+
 ![Overview](Assets/overview.png)
 
 </div>
