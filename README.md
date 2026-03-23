@@ -1,19 +1,18 @@
 <div align="center">
 
 # Fedorix
-
-**A clean, minimal GNOME customization for Fedora, built for people who want their desktop to look good without breaking their workflow.**
-
 ![GNOME](https://img.shields.io/badge/DE-GNOME-informational?style=flat&logo=gnome&logoColor=white&color=4A90D9)
 ![Distro](https://img.shields.io/badge/Distro-Fedora-informational?style=flat&logo=fedora&logoColor=white&color=3c6eb4)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
 </div>
 
+![Overview](Assets/overview.png)
+
 ---
 
 ### Table of Contents
-
+- [Before you start](#before-you-start)
 - [Introduction](#introduction)
 - [Preview](#preview)
 - [Appearance](#appearance)
@@ -22,8 +21,8 @@
   - [Sound Theme (MIUI)](#sound-theme-miui)
   - [Fonts (Ubuntu)](#fonts-ubuntu)
 - [Extensions](#extensions)
-  - [Visual Extensions](#visual-extensions)
-  - [Usability Extensions](#usability-extensions)
+  - [Must have](#must-have)
+  - [Optional](#optional)
   - [Extension Configurations](#extension-configurations)
 - [Setup Guide](#setup-guide)
 - [Applications](#applications)
@@ -35,23 +34,61 @@
 - [Extras](#extras)
   - [Distrobox](#distrobox)
   - [Winboat](#winboat)
-  - [Emoji Picker](#emoji-picker)
   - [Alt + Drag Windows](#alt--drag-windows)
 - [Directory Structure](#directory-structure)
 - [Credits](#credits)
 
 ---
 
+<div align="left">
+
 ## Introduction
 
-I wanted something I could actually use every day. The goal was to keep it clean and minimal while avoiding unnecessary tweaks and visual clutter. 
+This is not a heavy rice. Not a mac clone. Just GNOME but better.
 
-GNOME felt like the right base after some tweaking. The overview workflow is smooth, and with a few extensions, it covers everything needed without getting in the way. It is not perfect, but it is at a point where it feels consistent and comfortable to use.
+Fedorix is a beginner-friendly setup guide for Fedora. The idea is simple
+keep everything familiar while fixing the small things that bother you in
+daily use. Fonts, blur, launcher, dock. Nothing dramatic, nothing complicated.
+
+**New to Linux or GNOME? No problem.**
+If you're comfortable running a few terminal commands, you have everything
+you need to follow this guide. Every step is explained, and every setting
+has a screenshot no guessing required.
+
+This is not a fully transformed desktop. It's not plain stock GNOME either.
+It's the sweet spot same workflow you already know, just cleaner,
+smoother, and more comfortable to use every day.
+
+Every extension here has a reason. Nothing was added just to look fancy.
+The real difference comes from *how* things are configured, not just
+what's installed. Make sure to check the
+[Extension Configurations](#extension-configurations) screenshots
+just installing the extensions won't get you there.
+
+You can get the full setup running in about **1–2 hours**.
+Or just pick what you need every section works independently.
+
+> **Built for people who want GNOME to feel better not different.**
+
+</div>
+
+---
+
+## Before You Start
+
+A few things to know before you begin.
+
+- **Fresh Fedora install is recommended** but not required. An existing setup works too, just be careful with themes.
+- **Basic terminal knowledge is enough.** You only need to copy and run a few commands. Nothing advanced.
+- **Install extensions one by one**, not all at once. It's easier to troubleshoot that way.
+- **Every section is independent.** You don't have to follow everything. Pick only what you need.
+- **Estimated time: 1–2 hours** for the full setup. Less if you skip sections.
+
+> [!TIP]
+> Not sure where to start? Follow the [Setup Guide](#setup-guide) — it walks you through everything in order.
 
 > [!IMPORTANT]
 > Most of the visual polish comes from **configuring** extensions rather than just installing them. Make sure to check the [Extension Configurations](#extension-configurations) screenshots because the defaults will not get you there.
-
-![Overview](Assets/overview.png)
 
 ---
 
@@ -75,12 +112,23 @@ To apply these themes, make sure you have **GNOME Tweaks** installed.
 
 ### System & Icon Theme (Yaru)
 
-The Yaru dark theme from Ubuntu is clean and consistent. To keep things simple and avoid build systems, we will install it manually.
+The Yaru dark theme from Ubuntu is clean and consistent.
 
 🔗 [github.com/ubuntu/yaru](https://github.com/ubuntu/yaru)
 
-**Installation:**
+**Installation Using package manager:**
 
+Fedora:
+```bash
+sudo dnf install yaru-theme
+```
+
+Ubuntu:
+```bash
+sudo apt install yaru-theme
+```
+
+**Manual Installation:**
 ```bash
 git clone https://github.com/ubuntu/yaru.git
 mkdir -p ~/.themes ~/.icons
@@ -92,11 +140,12 @@ cp -r icons/Yaru* ~/.icons/
 **Applying the theme:**
 
 Open **GNOME Tweaks → Appearance** and set:
-- **Icons**: `Yaru-Dark`
-- **Shell**: `Yaru-Dark` *(requires the **User Themes** extension)*
-- **Legacy Applications**: `Yaru-Dark`
 
-![Shell Appearance Config](configs/gnome-tweaks/shell-appearence-config.png)
+```
+Icons            → Yaru-Dark
+Shell            → Yaru-Dark  (requires User Themes extension)
+Legacy Apps      → Yaru-Dark
+```
 
 ---
 
@@ -106,16 +155,21 @@ Open **GNOME Tweaks → Appearance** and set:
 
 **Installation:**
 
-Download and extract the theme from the link above, then copy it to your icons folder:
+1. Download the theme from the link above — you will get `macOS.tar.xz`
+2. Right click and extract it — you will get a folder named `macOS`
+3. Move the `macOS` folder to:
 
-```bash
-mkdir -p ~/.icons
-cp -r <extracted-folder> ~/.icons/
 ```
+~/.local/share/icons/
+```
+
+> If the `icons` folder does not exist, create it manually.
 
 **Applying the theme:**
 
-Open **GNOME Tweaks → Appearance** and select the macOS cursor.
+Open **GNOME Tweaks → Appearance → Cursor** and select `macOS`.
+
+![Shell Appearance Config](configs/gnome-tweaks/shell-appearence-config.png)
 
 ---
 
@@ -125,17 +179,19 @@ Open **GNOME Tweaks → Appearance** and select the macOS cursor.
 
 **Installation:**
 
-Download and extract the theme, then copy it to your sounds folder:
+1. Download the theme from the link above — you will get `MIUI.tar.gz`
+2. Right click and extract it — you will get a folder named `MIUI`
+3. Move the `MIUI` folder to:
 
-```bash
-mkdir -p ~/.local/share/sounds
-cp -r <extracted-folder> ~/.local/share/sounds/
 ```
+~/.local/share/sounds/
+```
+
+> If the `sounds` folder does not exist, create it manually.
 
 **Applying the theme:**
 
-Open **GNOME Tweaks → Sound** and select the theme.
-*(Note: GNOME sound theme support can be inconsistent depending on the distro, so some sounds might not apply.)*
+Open **GNOME Tweaks → Sound** and select `MIUI`.
 
 ![Sound Theme Config](configs/gnome-tweaks/sound-theme.png)
 
@@ -171,13 +227,15 @@ Open **GNOME Tweaks → Fonts** and configure them as follows:
 
 ![Font Config](configs/gnome-tweaks/font-config.png)
 
+**Titlebar buttons added**
+
 ![Window Config](configs/gnome-tweaks/windows-config.png)
 
 ---
 
 ## Extensions
 
-Extensions do a lot of the heavy lifting here. I have split them into visual and usability categories based on how I use them.
+Extensions do a lot of the heavy lifting here. Install only what you need. Start with Must Have, then add Optional ones based on your workflow.
 
 Install from [extensions.gnome.org](https://extensions.gnome.org) or use [Extension Manager](https://flathub.org/apps/com.mattjakeman.ExtensionManager) from Flathub.
 
@@ -187,35 +245,37 @@ Install from [extensions.gnome.org](https://extensions.gnome.org) or use [Extens
 
 ---
 
-### Visual Extensions
+### Must Have
 
-These extensions control how the desktop looks. Blur My Shell alone is responsible for most of the visual feel.
+Start with these. These are the core extensions that make the biggest difference.
 
-- [**Blur My Shell**](https://extensions.gnome.org/extension/3193/blur-my-shell/) - Adds blur to panels, the overview, and the dash. This is the single biggest visual upgrade.
-- [**Just Perfection**](https://extensions.gnome.org/extension/3843/just-perfection/) - Hides and fine-tunes GNOME Shell UI elements.
+- [**Blur My Shell**](https://extensions.gnome.org/extension/3193/blur-my-shell/) - Adds blur to panels, overview, and dash. The single biggest visual upgrade.
+- [**Dash to Dock**](https://extensions.gnome.org/extension/307/dash-to-dock/) - Turns the GNOME dash into a persistent dock.
 - [**User Themes**](https://extensions.gnome.org/extension/19/user-themes/) - Required to apply a custom Shell theme.
-- [**Compiz Magic Lamp Effect**](https://extensions.gnome.org/extension/3740/compiz-alike-magic-lamp-effect/) - Provides a smooth and satisfying minimize animation.
-- [**Hide Top Bar**](https://extensions.gnome.org/extension/545/hide-top-bar/) - Auto hides the top panel when not needed.
-- [**Top Bar Organiser**](https://extensions.gnome.org/extension/4356/top-bar-organizer/) - Controls what appears in the top bar and in what order.
+- [**Just Perfection**](https://extensions.gnome.org/extension/3843/just-perfection/) - Hides and fine tunes GNOME Shell UI elements.
+- [**ArcMenu**](https://extensions.gnome.org/extension/3628/arcmenu/) - Replaces the default app grid with a proper launcher.
+- [**AppIndicator & KStatusNotifierItem Support**](https://extensions.gnome.org/extension/615/appindicator-support/) - Adds system tray icon support.
+- [**GTK4 Desktop Icons NG (DING)**](https://extensions.gnome.org/extension/5263/gtk4-desktop-icons-ng-ding/) - Desktop icon support.
+- [**GSConnect**](https://extensions.gnome.org/extension/1319/gsconnect/) - Phone and desktop sync via KDE Connect.
+- [**Caffeine**](https://extensions.gnome.org/extension/517/caffeine/) - Prevents screen from sleeping.
 
 ---
 
-### Usability Extensions
+### Optional
 
-These extensions make day to day use smoother by providing launchers, tiling, a clipboard, and phone sync capabilities.
+Install only what fits your workflow. You do not need all of these.
 
-- [**ArcMenu**](https://extensions.gnome.org/extension/3628/arcmenu/) - Replaces the default app grid with a proper application launcher.
-- [**Dash to Dock**](https://extensions.gnome.org/extension/307/dash-to-dock/) - Turns the GNOME dash into a persistent and customizable dock.
-- [**Forge Tiling**](https://extensions.gnome.org/extension/4481/forge/) - Enables manual tiling window management.
-- [**Tiling Shell**](https://extensions.gnome.org/extension/7065/tiling-shell/) - Provides auto tiling with screen edge snapping.
-- [**GSConnect**](https://extensions.gnome.org/extension/1319/gsconnect/) - Integrates KDE Connect for phone and desktop synchronization.
-- [**Copyous**](https://extensions.gnome.org/extension/8834/copyous/) - Adds a gnome native clipboard manager with a history view.
-- [**Win11 Clipboard History**](https://github.com/gustavosett/Windows-11-Clipboard-History-For-Linux) - Adds a Windows 11 style `Win + V` clipboard panel.
-- [**Quick Settings Audio Panel**](https://extensions.gnome.org/extension/5940/quick-settings-audio-panel/) - Improves audio controls inside the quick settings menu.
-- [**GTK4 Desktop Icons NG (DING)**](https://extensions.gnome.org/extension/5263/gtk4-desktop-icons-ng-ding/) - Adds desktop icon support to GNOME.
-- [**AppIndicator & KStatusNotifierItem Support**](https://extensions.gnome.org/extension/615/appindicator-support/) - Adds system tray icon support.
-- [**Extension List**](https://extensions.gnome.org/extension/3088/extension-list/) - Allows you to manage and toggle extensions directly from the panel.
-- [**Caffeine**](https://extensions.gnome.org/extension/517/caffeine/) - Prevents the screen from sleeping when you need it to stay on.
+- [**Forge Tiling**](https://extensions.gnome.org/extension/4481/forge/) - Manual tiling. Only useful if you work with many windows at once.
+- [**Tiling Shell**](https://extensions.gnome.org/extension/7065/tiling-shell/) - Auto tiling with screen edge snapping. Pick either this or Forge, not both.
+- [**Copyous**](https://extensions.gnome.org/extension/8834/copyous/) - Clipboard manager. Pick either this or Win11 Clipboard, not both.
+- [**Win11 Clipboard History**](https://github.com/gustavosett/Windows-11-Clipboard-History-For-Linux) - Windows 11 style clipboard panel.
+- [**Quick Settings Audio Panel**](https://extensions.gnome.org/extension/5940/quick-settings-audio-panel/) - Better audio controls in quick settings.
+- [**Hide Top Bar**](https://extensions.gnome.org/extension/545/hide-top-bar/) - Auto hides the top panel.
+- [**Top Bar Organiser**](https://extensions.gnome.org/extension/4356/top-bar-organizer/) - Controls what appears in the top bar.
+- [**Compiz Magic Lamp Effect**](https://extensions.gnome.org/extension/3740/compiz-alike-magic-lamp-effect/) - Smooth minimize animation. Pure visual, not required.
+- [**Extension List**](https://extensions.gnome.org/extension/3088/extension-list/) - Manage extensions from the panel.
+- [**Internet Speed Meter**](https://extensions.gnome.org/extension/2980/internet-speed-meter/) - Displays internet speed in the top bar.
+- [**Yaru Automatic Dark Mode**](https://extensions.gnome.org/extension/8655/yaru-automatic-dark-mode/) - Automatically switches between Yaru light and dark theme based on system dark mode setting.
 
 ---
 
@@ -543,21 +603,23 @@ To enable transparent tabs:
 
 Two clipboard options are available here. Pick whichever fits your workflow better.
 
-**Win11 Clipboard History** mimics the Windows 11 `Win + V` panel experience.
+**Win11 Clipboard History** mimics the Windows 11 `Win + V` clipboard panel experience.
+You can install it from the GitHub link below — installation instructions are already there.
 
 🔗 [github.com/gustavosett/Windows-11-Clipboard-History-For-Linux](https://github.com/gustavosett/Windows-11-Clipboard-History-For-Linux)
 
-**Copyous** is a gnome native clipboard manager with a clean history view.
-
-🔗 [extensions.gnome.org/extension/8834/copyous](https://extensions.gnome.org/extension/8834/copyous/)
-
-**Clipboard panel:**
-
 ![Clipboard](Assets/1-clipboard.png)
 
-**Animated preview:**
+![Emojis](Assets/2-emojis.png)
 
 ![Clipboard GIFs](Assets/clipboard-gifs.png)
+
+---
+
+**Copyous** is a GNOME native clipboard manager with a clean history view.
+Simpler and more lightweight. Install directly from GNOME Extensions.
+
+🔗 [extensions.gnome.org/extension/8834/copyous](https://extensions.gnome.org/extension/8834/copyous/)
 
 ---
 
@@ -617,25 +679,16 @@ Follow the setup instructions in the repository.
 
 ---
 
-### Emoji Picker
-
-A quick emoji picker accessible from the panel is surprisingly useful once you have it.
-
-![Emojis](Assets/2-emojis.png)
-
----
-
 ### Alt + Drag Windows
 
-This lets you grab any part of a window to drag it without needing to aim for the titlebar. It is one of the best GNOME quality of life tweaks.
-
+By default, you can only drag a window by grabbing its titlebar.
+These commands let you hold `Alt` and click anywhere on a window to drag or resize it.
 ```bash
 gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier '<Alt>'
 gsettings set org.gnome.desktop.wm.preferences resize-with-right-button true
 ```
 
 To switch windows across all workspaces instead of just the current one:
-
 ```bash
 gsettings set org.gnome.shell.window-switcher current-workspace-only false
 ```
@@ -643,7 +696,6 @@ gsettings set org.gnome.shell.window-switcher current-workspace-only false
 ---
 
 ## Directory Structure
-
 ```text
 .
 ├── Assets/                    # Preview screenshots
@@ -653,28 +705,103 @@ gsettings set org.gnome.shell.window-switcher current-workspace-only false
 └── README.md
 ```
 
-| System Path                   | Purpose                  |
-|-------------------------------|--------------------------|
-| `~/.icons/`                   | Cursor and icon themes   |
-| `~/.themes/`                  | GTK themes               |
-| `~/.local/share/sounds/`      | Sound themes             |
+| System Path                      | Purpose                  |
+|----------------------------------|--------------------------|
+| `~/.local/share/icons/`          | Cursor and icon themes   |
+| `~/.themes/`                     | GTK themes               |
+| `~/.local/share/sounds/`         | Sound themes             |
+| `~/.local/share/fonts/`          | Custom fonts             |
+
+---
+
+## Troubleshooting
+
+> [!NOTE]
+> These are the most common issues people run into. Check here before opening an issue.
+
+---
+
+**Extensions not showing after install**
+
+> [!TIP]
+> Restart GNOME Shell without logging out:
+> ```bash
+> Alt + F2 → type 'r' → press Enter
+> ```
+> On Wayland, log out and log back in instead.
+
+---
+
+**Theme not applying in GNOME Tweaks**
+
+> [!IMPORTANT]
+> The **User Themes** extension must be installed and enabled.
+> Shell theme will not appear without it — this is the most common mistake.
+
+---
+
+**Blur My Shell not working**
+
+> [!TIP]
+> Open Blur My Shell settings and go to the **Pipelines** tab.
+> The default pipeline is often disabled — enable it manually.
+> Check the [Extension Configurations](#extension-configurations) screenshots for reference.
+
+---
+
+**Cursor theme not showing in GNOME Tweaks**
+
+> [!TIP]
+> Make sure the `macOS` folder is placed **directly** inside:
+> ```
+> ~/.local/share/icons/
+> ```
+> Not inside a subfolder — the path must be exact.
+
+---
+
+**Yaru theme not showing after installation**
+
+> [!TIP]
+> Run this to refresh the icon cache:
+> ```bash
+> gtk-update-icon-cache ~/.local/share/icons/
+> ```
+
+---
+
+**Sound theme not working**
+
+> [!NOTE]
+> GNOME sound theme support is inconsistent on Fedora.
+> Some sounds may not apply — this is a known GNOME limitation, not a setup issue.
 
 ---
 
 ## Credits
 
-- [Yaru Theme](https://github.com/ubuntu/yaru) - The Ubuntu team
-- [Distrobox](https://github.com/89luca89/distrobox) - 89luca89
-- [Winboat](https://github.com/TibixDev/winboat) - TibixDev
-- [Windows 11 Clipboard for Linux](https://github.com/gustavosett/Windows-11-Clipboard-History-For-Linux) - gustavosett
-- [Add Water](https://flathub.org/apps/dev.qwery.AddWater) - Flathub
-- [Zen Browser](https://zen-browser.app)
-- [GNOME Extensions](https://extensions.gnome.org)
-- [Felipe Juan's dotfiles](https://github.com/felipe-juan/dotfiles) - README structure inspiration
+All credit goes to the original authors of the tools used in this setup.
+
+| Tool | Author |
+|------|--------|
+| [Yaru Theme](https://github.com/ubuntu/yaru) | The Ubuntu Team |
+| [Distrobox](https://github.com/89luca89/distrobox) | 89luca89 |
+| [Winboat](https://github.com/TibixDev/winboat) | TibixDev |
+| [Win11 Clipboard History](https://github.com/gustavosett/Windows-11-Clipboard-History-For-Linux) | gustavosett |
+| [Add Water](https://flathub.org/apps/dev.qwery.AddWater) | Flathub |
+| [Zen Browser](https://zen-browser.app) | Zen Browser Team |
+| [GNOME Extensions](https://extensions.gnome.org) | GNOME Project |
+| [Felipe Juan's dotfiles](https://github.com/felipe-juan/dotfiles) | README structure inspiration |
+| [GNOME Tweaks](https://gitlab.gnome.org/GNOME/gnome-tweaks) | GNOME Project |
+| [Extension Manager](https://flathub.org/apps/com.mattjakeman.ExtensionManager) | Matt Jakeman |
+
 
 ---
 
+
+
 <div align="center">
+
 
 **Fedorix** is a collaborative effort by **Naitik** and **Khushi**.<br>
 *Built through a lot of trial, tweaks, and constant iteration.*
