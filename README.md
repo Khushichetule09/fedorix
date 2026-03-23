@@ -1,6 +1,6 @@
 <div align="center">
 
-# Fedorix — GNOME on Fedora
+# Fedorix 🐧
 
 A beginner-friendly GNOME setup guide for Fedora. same workflow, just better.
 
